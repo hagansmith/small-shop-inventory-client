@@ -1,2 +1,2 @@
 # small-shop-inventory
-An Inventory Management Tool Built for Use With Shopify Webhooks
+An Inventory Management Tool Using React Built for Use With Shopify Webhooks
