@@ -10,8 +10,6 @@ const Header = () => {
             <h1 className="App-title">Small Shop <span className="module">| inventory |</span></h1>
             <MainNav/>
         </header>
-        
-
     )
 }
 
