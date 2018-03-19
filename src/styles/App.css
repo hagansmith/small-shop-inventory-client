@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+}
+
+.App-header {
+  background-color: #222;
+  height: 80px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+  padding-left: 10px;
+  float: left;
+}
+
+.module {
+  font-size: .75em;
+}
+
+.App-intro {
+  font-size: large;
+  padding-top: 25px;
+}
+
+.Main-Menu {
+  display: flex;
+  justify-content: flex-end;
+  float: right;
+}
+
+.Main-Menu .main-menu-item {
+  flex-basis: content;
+}
+
+.ui.menu {
+  float: right;
+  width : fit-content;
+}
+
+/* @keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+} */
