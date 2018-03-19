@@ -25,28 +25,3 @@ export default class MainNav extends Component {
     )
   }
 }
-
-
-// const MainNav = () => {
-//     return (
-//         <menu className="Main-menu">
-//             <button> Recieve Inventory </button>
-//             <button> Cycle Count </button>
-//             <button> Remove Inventory </button>
-//             <button onClick={this.AdminNav}> Administration </button>
-//         </menu>
-//     );
-    
-// }
-
-// const AdminNav = () => {
-//     return (
-//         <menu className="Admin-drop-down">
-//             <button> Add Location </button>
-//             <button> Remove Location </button>
-//             <button> Edit Location </button>
-//         </menu>
-//     )
-// }
-
-// export default MainNav;
