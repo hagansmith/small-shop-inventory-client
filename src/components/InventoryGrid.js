@@ -8,7 +8,7 @@ class InventoryGrid extends React.Component {
             <Grid width={16}>
                 <Grid.Row>
                     <Grid.Column width={2}>
-                        <Image className="itemImage" />
+                        {details.image ? <Image className="itemImage" src={details.image}/> : <h3> No Image </h3>}
                     </Grid.Column>
                     <Grid.Column width={3}>
                         <h4 className="Title">{details.title}</h4>
