@@ -2,8 +2,10 @@ import _ from 'lodash';
 import faker from 'faker';
 import React, { Component } from 'react';
 import { Search, Grid } from 'semantic-ui-react';
+//import fetchProducts from './Products';
 
-const source = _.times(5, () => ({
+let results = 
+_.times(5, () => ({
   title: faker.company.companyName(),
   description: faker.company.catchPhrase(),
   image: faker.internet.avatar(),
@@ -13,6 +15,7 @@ const source = _.times(5, () => ({
 export default class SearchProducts extends Component {
   componentWillMount() {
     this.resetComponent()
+    
   }
 
   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
@@ -20,6 +23,7 @@ export default class SearchProducts extends Component {
   handleResultSelect = (e, { result }) => this.setState({ value: result.title })
 
   handleSearchChange = (e, { value }) => {
+
     this.setState({ isLoading: true, value })
 
     setTimeout(() => {
@@ -27,17 +31,16 @@ export default class SearchProducts extends Component {
 
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
       const isMatch = result => re.test(result.title)
-
+      ;
       this.setState({
         isLoading: false,
-        results: _.filter(source, isMatch),
+        results: _.filter(results, isMatch),
       })
     }, 500)
   }
 
   render() {
     const { isLoading, value, results } = this.state
-
     return (
       <Grid>
         <Grid.Column width={16}>
