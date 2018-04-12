@@ -12,12 +12,12 @@ class App extends React.Component {
     super();
     this.state = {
       lowInventory: {},
-      orderedInventory: {}
+      reorderProducts: {}
     }
   }
 
   componentWillMount() {
-    fetch(`https://cbc11633.ngrok.io/api/products`)
+    fetch(`https://9350f62b.ngrok.io/api/products`)
       .then(response => {
         if (!response.ok) {
           throw Error("request failed")
@@ -42,7 +42,7 @@ class App extends React.Component {
         <Search />
         <Grid>
           <LowInventory lowInventory={this.state.lowInventory} />
-          <InventoryOnOrder />
+          <InventoryOnOrder lowInventory={this.state.lowInventory} />
         </Grid>
       </div>
     );

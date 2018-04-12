@@ -14,10 +14,10 @@ class InventoryGrid extends React.Component {
                         <h4 className="Title">{details.title}</h4>
                     </Grid.Column>
                     <Grid.Column width={3}>
-                        <h4 className="productISBN">{details.id}</h4>
+                        <h4 className="productISBN">{details.sku}</h4>
                     </Grid.Column>
                     <Grid.Column width={2}>
-                        <h4 className="oneMonth"></h4>
+                        <h4 className="remaining">{details.remaining}</h4>
                     </Grid.Column>
                     <Grid.Column width={2}>
                         <h4 className="threeMonth"></h4>

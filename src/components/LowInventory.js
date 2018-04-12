@@ -12,7 +12,7 @@ class LowInventory extends React.Component {
                         <Grid.Column width={2}></Grid.Column>
                         <Grid.Column width={3}>Product Name</Grid.Column>
                         <Grid.Column width={3}>ISBN-13</Grid.Column>
-                        <Grid.Column width={2}>1 Month</Grid.Column>
+                        <Grid.Column width={2}>Remaining</Grid.Column>
                         <Grid.Column width={2}>3 Month</Grid.Column>
                         <Grid.Column width={2}>6 Month</Grid.Column>
                     </Grid.Row>
