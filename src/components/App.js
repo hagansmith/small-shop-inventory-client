@@ -10,14 +10,15 @@ import InventoryOnOrder from './OnOrderInventory';
 class App extends React.Component {
   constructor() {
     super();
+    
+    this.addToOnOrder = this.addToOnOrder.bind(this);
     this.state = {
       lowInventory: {},
-      reorderProducts: {}
     }
   }
 
   componentWillMount() {
-    fetch(`https://9350f62b.ngrok.io/api/products`)
+    fetch(`https://649c403b.ngrok.io/api/products`)
       .then(response => {
         if (!response.ok) {
           throw Error("request failed")
@@ -32,6 +33,18 @@ class App extends React.Component {
       });
   }
 
+  addToOnOrder(sku, count){
+    fetch(`https://649c403b.ngrok.io/api/products/${sku}/${count}`, {
+      method: 'PATCH'
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw Error("request failed")
+      }
+      return response
+    })
+  };
+
   render() {
     return (
       <div className="App">
@@ -42,7 +55,10 @@ class App extends React.Component {
         <Search />
         <Grid>
           <LowInventory lowInventory={this.state.lowInventory} />
-          <InventoryOnOrder lowInventory={this.state.lowInventory} />
+          <InventoryOnOrder 
+            lowInventory={this.state.lowInventory}
+            addToOnOrder={this.addToOnOrder}
+          />
         </Grid>
       </div>
     );

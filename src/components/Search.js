@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Search, Grid } from 'semantic-ui-react';
 //import fetchProducts from './Products';
 
-let results = 
+let results =
 _.times(5, () => ({
   title: faker.company.companyName(),
   description: faker.company.catchPhrase(),
@@ -13,9 +13,9 @@ _.times(5, () => ({
 }))
 
 export default class SearchProducts extends Component {
+
   componentWillMount() {
     this.resetComponent()
-    
   }
 
   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
