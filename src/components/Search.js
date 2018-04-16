@@ -4,13 +4,13 @@ import React, { Component } from 'react';
 import { Search, Grid } from 'semantic-ui-react';
 //import fetchProducts from './Products';
 
-let results =
-_.times(5, () => ({
-  title: faker.company.companyName(),
-  description: faker.company.catchPhrase(),
-  image: faker.internet.avatar(),
-  price: faker.finance.amount(0, 100, 2, '$'),
-}))
+// let results =
+// _.times(5, () => ({
+//   title: faker.company.companyName(),
+//   description: faker.company.catchPhrase(),
+//   image: faker.internet.avatar(),
+//   price: faker.finance.amount(0, 100, 2, '$'),
+// }))
 
 export default class SearchProducts extends Component {
 
@@ -34,7 +34,7 @@ export default class SearchProducts extends Component {
       ;
       this.setState({
         isLoading: false,
-        results: _.filter(results, isMatch),
+        results: _.filter(this.props.results, isMatch),
       })
     }, 500)
   }
@@ -48,17 +48,11 @@ export default class SearchProducts extends Component {
             loading={isLoading}
             onResultSelect={this.handleResultSelect}
             onSearchChange={this.handleSearchChange}
-            results={results}
+            results={this.state.results}
             value={value}
-            {...this.props}
+            {...this.state}
           />
         </Grid.Column>
-        {/* <Grid.Column width={8}>
-          <Header>State</Header>
-          <pre>{JSON.stringify(this.state, null, 2)}</pre>
-          <Header>Options</Header>
-          <pre>{JSON.stringify(source, null, 2)}</pre>
-        </Grid.Column> */}
       </Grid>
     )
   }

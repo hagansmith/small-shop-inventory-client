@@ -22,8 +22,8 @@ class InventoryOnOrder extends React.Component {
                 </Grid>
                 {
                     Object
-                        .keys(this.props.lowInventory)
-                        .map(key => <OnOrderGrid key={key} details={this.props.lowInventory[key]} />)
+                        .keys(this.props.onOrder)
+                        .map(key => <OnOrderGrid key={key} details={this.props.onOrder[key]} />)
                 }
             </Grid.Column>
         )

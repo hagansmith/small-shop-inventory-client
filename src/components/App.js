@@ -13,7 +13,9 @@ class App extends React.Component {
     
     this.addToOnOrder = this.addToOnOrder.bind(this);
     this.state = {
+      allProducts: {},
       lowInventory: {},
+      onOrderInventory: {}
     }
   }
 
@@ -29,6 +31,20 @@ class App extends React.Component {
       .then(results => {
         this.setState({
           lowInventory: results
+        })
+      });
+
+      fetch(`https://649c403b.ngrok.io/api/onOrder`)
+      .then(response => {
+        if (!response.ok) {
+          throw Error("request failed")
+        }
+        return response
+      })
+      .then(results => results.json())
+      .then(results => {
+        this.setState({
+          onOrderInventory: results
         })
       });
   }
@@ -52,11 +68,11 @@ class App extends React.Component {
         <p className="App-intro">
           Welcome to Small Shop Inventory
         </p>
-        <Search />
+        <Search results={this.state.lowInventory}/>
         <Grid>
           <LowInventory lowInventory={this.state.lowInventory} />
           <InventoryOnOrder 
-            lowInventory={this.state.lowInventory}
+            onOrder={this.state.onOrderInventory}
             addToOnOrder={this.addToOnOrder}
           />
         </Grid>

@@ -1,7 +1,14 @@
 import React from 'react';
-import { Grid, Image, Button } from 'semantic-ui-react';
+import { Grid, Image, Button, Header, Modal, Input } from 'semantic-ui-react';
 
 class OnOrderGrid extends React.Component {
+    recieveInventory(event, details) {
+        event.preventDefault();
+        console.log(details.remaining["0"].value);
+        
+    }
+
+
     render() {
         const details = this.props.details;
         return (
@@ -24,7 +31,22 @@ class OnOrderGrid extends React.Component {
                             <h4 className="qtyOrdered">{details.orderedInventoryQty}</h4>
                         </Grid.Column>
                         <Grid.Column width={3}>
-                            <Button className="recieveInventory" size='small'>Receive Inventory</Button>
+                            <Modal trigger={<Button className="recieveInventoryModal" size='small'>Receive Inventory</Button>}>
+                                <Modal.Header>{this.props.details.title}</Modal.Header>
+                                <Modal.Content image>
+                                <Image wrapped size='medium' src={this.props.details.image} />
+                                <Modal.Description>
+                                    <Header>Reorder Information</Header>
+                                    <p>{this.props.details.orderedInventoryQty} were ordered on {this.props.details.reorderDate}</p>
+                                    <p>How many are you reciveing?</p>
+                                    <form ref={(input) => this.props.details.remaining = input}className="receive" onSubmit={(e) => this.recieveInventory(e, this.props.details,)}>
+                                        <Input ref={(input) => this.remaining = input} size='small' placeholder="Quantity"/>
+                                        <Button type="submit" size='small'>Receive Inventory</Button>
+                                    </form>
+                                </Modal.Description>
+                                {/* <Button className="recieveInventory" size='small' onClick={(e) => this.recieveInventory(this.props.details)}>Receive Inventory</Button> */}
+                                </Modal.Content>
+                            </Modal>
                         </Grid.Column>
                     </Grid.Row>
                 : <h2></h2>}
@@ -32,4 +54,6 @@ class OnOrderGrid extends React.Component {
         )
     }
 }
+
+
 export default OnOrderGrid;
