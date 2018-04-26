@@ -21,19 +21,6 @@ class OnOrderGrid extends React.Component {
             // need to update this to a better method
             //this.getOnorderProducts()
         )
-
-        // fetch(`https://b5328636.ngrok.io/api/products/${sku}`)
-        //     .then(response => {
-        //         if (!response.ok) {
-        //             throw Error("request failed")
-        //         }
-        //         return response
-        //     }).then(results => results.json())
-        //     .then(results => {
-        //         this.props.addToOnOrder(results.variantId, count)
-        //     }).then(
-        //         this.props.getOnorder()
-        //     )
     }
 
 
