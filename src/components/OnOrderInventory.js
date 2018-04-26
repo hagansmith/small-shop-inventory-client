@@ -8,7 +8,7 @@ class InventoryOnOrder extends React.Component {
         return (
             <Grid.Column width={8}>
                 <h2>Inventory On Order</h2>
-                <AddReorderProduct addToOnOrder={this.props.addToOnOrder}/>
+                <AddReorderProduct addToOnOrder={this.props.addToOnOrder} getOnorder={this.props.getOnorderProducts}/>
                 <Grid width={16}>
                     <Grid.Row>
                         <Grid.Column width={2}></Grid.Column>
@@ -23,7 +23,7 @@ class InventoryOnOrder extends React.Component {
                 {
                     Object
                         .keys(this.props.onOrder)
-                        .map(key => <OnOrderGrid key={key} details={this.props.onOrder[key]} />)
+                        .map(key => <OnOrderGrid key={key} details={this.props.onOrder[key]} getOnorder={this.props.getOnorderProducts} />)
                 }
             </Grid.Column>
         )

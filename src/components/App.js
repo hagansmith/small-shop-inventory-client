@@ -12,6 +12,7 @@ class App extends React.Component {
     super();
     
     this.addToOnOrder = this.addToOnOrder.bind(this);
+    this.getOnorderProducts = this.getOnorderProducts.bind(this);
     this.state = {
       allProducts: {},
       lowInventory: {},
@@ -20,7 +21,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    fetch(`https://649c403b.ngrok.io/api/products`)
+    fetch(`https://b5328636.ngrok.io/api/products`)
       .then(response => {
         if (!response.ok) {
           throw Error("request failed")
@@ -34,24 +35,28 @@ class App extends React.Component {
         })
       });
 
-      fetch(`https://649c403b.ngrok.io/api/onOrder`)
-      .then(response => {
-        if (!response.ok) {
-          throw Error("request failed")
-        }
-        return response
-      })
-      .then(results => results.json())
-      .then(results => {
-        this.setState({
-          onOrderInventory: results
-        })
-      });
+      this.getOnorderProducts();
   }
 
-  addToOnOrder(sku, count){
-    fetch(`https://649c403b.ngrok.io/api/products/${sku}/${count}`, {
-      method: 'PATCH'
+  getOnorderProducts() {
+    fetch(`https://b5328636.ngrok.io/api/onOrder`)
+    .then(response => {
+      if (!response.ok) {
+        throw Error("request failed")
+      }
+      return response
+    })
+    .then(results => results.json())
+    .then(results => {
+      this.setState({
+        onOrderInventory: results
+      })
+    });
+  }
+
+  addToOnOrder(variantId, count){
+    fetch(`https://b5328636.ngrok.io/api/onOrder/${variantId}/${count}`, {
+      method: 'POST'
   })
     .then(response => {
       if (!response.ok) {
@@ -74,6 +79,7 @@ class App extends React.Component {
           <InventoryOnOrder 
             onOrder={this.state.onOrderInventory}
             addToOnOrder={this.addToOnOrder}
+            getOnorderProducts={this.getOnorderProducts}
           />
         </Grid>
       </div>

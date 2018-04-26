@@ -4,8 +4,36 @@ import { Grid, Image, Button, Header, Modal, Input } from 'semantic-ui-react';
 class OnOrderGrid extends React.Component {
     recieveInventory(event, details) {
         event.preventDefault();
-        console.log(details.remaining["0"].value);
-        
+        var count = details.remaining["0"].value;
+        var id = details.id;
+       
+        fetch(`https://b5328636.ngrok.io/api/onOrder/${id}/${count}`, {
+            method: 'PATCH'
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw Error("request failed")
+            }
+            return response
+        }).then (
+            this.props.getOnorder()
+            //this.Modal.setState({open: false}),
+            // need to update this to a better method
+            //this.getOnorderProducts()
+        )
+
+        // fetch(`https://b5328636.ngrok.io/api/products/${sku}`)
+        //     .then(response => {
+        //         if (!response.ok) {
+        //             throw Error("request failed")
+        //         }
+        //         return response
+        //     }).then(results => results.json())
+        //     .then(results => {
+        //         this.props.addToOnOrder(results.variantId, count)
+        //     }).then(
+        //         this.props.getOnorder()
+        //     )
     }
 
 
@@ -44,7 +72,6 @@ class OnOrderGrid extends React.Component {
                                         <Button type="submit" size='small'>Receive Inventory</Button>
                                     </form>
                                 </Modal.Description>
-                                {/* <Button className="recieveInventory" size='small' onClick={(e) => this.recieveInventory(this.props.details)}>Receive Inventory</Button> */}
                                 </Modal.Content>
                             </Modal>
                         </Grid.Column>
