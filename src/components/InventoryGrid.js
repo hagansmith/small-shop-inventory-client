@@ -20,10 +20,10 @@ class InventoryGrid extends React.Component {
                         <h4 className="remaining">{details.remaining}</h4>
                     </Grid.Column>
                     <Grid.Column width={2}>
-                        <h4 className="threeMonth"></h4>
+                        {/* <h4 className="threeMonth"></h4> */}
                     </Grid.Column>
                     <Grid.Column width={2}>
-                        <h4 className="sixMonth"></h4>
+                        {/* <h4 className="sixMonth"></h4> */}
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

@@ -7,7 +7,7 @@ class AddReorderProduct extends React.Component {
         let sku = this.sku.inputRef.value;
         let count = this.orderedInventory.inputRef.value;
 
-        fetch(`https://b5328636.ngrok.io/api/products/${sku}`)
+        fetch(`https://560e7881.ngrok.io/api/products/${sku}`)
             .then(response => {
                 if (!response.ok) {
                     throw Error("request failed")
@@ -17,8 +17,7 @@ class AddReorderProduct extends React.Component {
             .then(results => {
                 this.props.addToOnOrder(results.variantId, count)
             }).then(
-                this.props.getOnorder(),
-                this.productForm.reset()
+                this.productForm.reset(),
             )
     }
 

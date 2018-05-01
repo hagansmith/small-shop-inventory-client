@@ -7,7 +7,7 @@ class OnOrderGrid extends React.Component {
         var count = details.remaining["0"].value;
         var id = details.id;
        
-        fetch(`https://b5328636.ngrok.io/api/onOrder/${id}/${count}`, {
+        fetch(`https://fecedfff.ngrok.io/api/onOrder/${id}/${count}`, {
             method: 'PATCH'
         })
         .then(response => {
@@ -17,9 +17,6 @@ class OnOrderGrid extends React.Component {
             return response
         }).then (
             this.props.getOnorder()
-            //this.Modal.setState({open: false}),
-            // need to update this to a better method
-            //this.getOnorderProducts()
         )
     }
 

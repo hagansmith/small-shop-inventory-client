@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    fetch(`https://b5328636.ngrok.io/api/products`)
+    fetch(`https://560e7881.ngrok.io/api/products`)
       .then(response => {
         if (!response.ok) {
           throw Error("request failed")
@@ -39,7 +39,7 @@ class App extends React.Component {
   }
 
   getOnorderProducts() {
-    fetch(`https://b5328636.ngrok.io/api/onOrder`)
+    fetch(`https://560e7881.ngrok.io/api/onOrder`)
     .then(response => {
       if (!response.ok) {
         throw Error("request failed")
@@ -55,7 +55,7 @@ class App extends React.Component {
   }
 
   addToOnOrder(variantId, count){
-    fetch(`https://b5328636.ngrok.io/api/onOrder/${variantId}/${count}`, {
+    fetch(`https://560e7881.ngrok.io/api/onOrder/${variantId}/${count}`, {
       method: 'POST'
   })
     .then(response => {

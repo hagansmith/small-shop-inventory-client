@@ -1,8 +1,6 @@
 import _ from 'lodash';
-import faker from 'faker';
 import React, { Component } from 'react';
 import { Search, Grid } from 'semantic-ui-react';
-//import fetchProducts from './Products';
 
 export default class SearchProducts extends Component {
 
