@@ -7,7 +7,7 @@ class AddReorderProduct extends React.Component {
         let sku = this.sku.inputRef.value;
         let count = this.orderedInventory.inputRef.value;
 
-        fetch(`https://560e7881.ngrok.io/api/products/${sku}`)
+        fetch(`https://small-shop.azurewebsites.net/api/products/${sku}`)
             .then(response => {
                 if (!response.ok) {
                     throw Error("request failed")

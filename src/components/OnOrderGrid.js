@@ -7,7 +7,7 @@ class OnOrderGrid extends React.Component {
         var count = details.remaining["0"].value;
         var id = details.id;
        
-        fetch(`https://fecedfff.ngrok.io/api/onOrder/${id}/${count}`, {
+        fetch(`https://small-shop.azurewebsites.net/api/onOrder/${id}/${count}`, {
             method: 'PATCH'
         })
         .then(response => {

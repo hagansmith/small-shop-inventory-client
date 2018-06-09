@@ -20,7 +20,7 @@ class Home extends React.Component {
   }
 
   componentWillMount() {
-    fetch(`https://560e7881.ngrok.io/api/products`)
+    fetch(`https://small-shop.azurewebsites.net/api/products`)
       .then(response => {
         if (!response.ok) {
           throw Error("request failed")
@@ -38,7 +38,7 @@ class Home extends React.Component {
   }
 
   getOnorderProducts() {
-    fetch(`https://560e7881.ngrok.io/api/onOrder`)
+    fetch(`https://small-shop.azurewebsites.net/api/onOrder`)
     .then(response => {
       if (!response.ok) {
         throw Error("request failed")
@@ -54,10 +54,11 @@ class Home extends React.Component {
   }
 
   addToOnOrder(variantId, count){
-    fetch(`https://560e7881.ngrok.io/api/onOrder/${variantId}/${count}`, {
+    fetch(`https://small-shop.azurewebsites.net/api/onOrder/${variantId}/${count}`, {
       method: 'POST'
   })
     .then(response => {
+      console.log(response);
       if (!response.ok) {
         throw Error("request failed")
       }
@@ -72,7 +73,7 @@ class Home extends React.Component {
         <p className="App-intro">
           Welcome to Small Shop Inventory
         </p>
-        <Search results={this.state.lowInventory}/>
+        {/* <Search results={this.state.lowInventory}/> */}
         <Grid>
           <LowInventory lowInventory={this.state.lowInventory} />
           <InventoryOnOrder 
