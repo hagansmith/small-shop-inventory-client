@@ -1,24 +1,44 @@
 import React from "react";
 import {
-    BrowserRouter as Router,
     Route,
-    Link,
     Redirect,
     withRouter
 } from "react-router-dom";
-import { Menu } from 'semantic-ui-react'
+import { Modal } from 'semantic-ui-react'
 
 const Auth = {
     isAuthenticated: false,
-    authenticate(cb) {
-        //  /login http://localhost:49892/authenticate
-        this.isAuthenticated = true;
-        setTimeout(cb, 100); // fake async
+    authenticate(user, pass) {
+        console.log(user, pass)
+        return fetch(`https://e4adfd22.ngrok.io/auth`, {
+            method: 'POST',
+            headers: new Headers({
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            }),
+            body: `grant_type=password&UserName=${user}&password=${pass}`,
+            credentials: "same-origin"
+        }).then(response => {
+            if (!response.ok) {
+                return (
+                    <Modal>
+                        <Modal.Header>Unable to login</Modal.Header>
+                    </Modal>
+                )
+            }
+            this.isAuthenticated = true;
+            return response
+            })
+            .then(results => results.json())
+            .then(results => {sessionStorage.setItem('token', results.access_token)})
     },
-    signout(cb) {
-        this.isAuthenticated = false;
-        setTimeout(cb, 100); // fake async
-    }
+
+    signout(cb)
+        {
+            this.isAuthenticated = false;
+            sessionStorage.removeItem('token');
+            setTimeout(cb, 0); // fake async
+        }
 };
 
 const AuthButton = withRouter(

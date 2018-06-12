@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
 import '../styles/App.css';
-import Search from './Search.js';
 import LowInventory from './LowInventory';
 import InventoryOnOrder from './OnOrderInventory';
 
