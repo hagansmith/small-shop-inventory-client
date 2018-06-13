@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Image, Button, Header, Modal, Input } from 'semantic-ui-react';
+import { receiveInventoryToStock } from './Data';
 
 class OnOrderGrid extends React.Component {
     recieveInventory(event, details) {
@@ -7,9 +8,7 @@ class OnOrderGrid extends React.Component {
         var count = details.remaining["0"].value;
         var id = details.id;
        
-        fetch(`https://small-shop.azurewebsites.net/api/onOrder/${id}/${count}`, {
-            method: 'PATCH'
-        })
+        receiveInventoryToStock(id, count)
         .then(response => {
             if (!response.ok) {
                 throw Error("request failed")

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
 import ProductGrid from './ProductGrid';
+import { getProducts } from './Data.js'
 
 class Products extends React.Component {
     constructor() {
@@ -12,7 +13,7 @@ class Products extends React.Component {
       }
     
       componentWillMount() {
-        fetch(`https://small-shop.azurewebsites.net/api/products/variants`)
+          getProducts()
           .then(response => {
             if (!response.ok) {
               throw Error("request failed")

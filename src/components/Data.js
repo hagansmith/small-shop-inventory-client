@@ -62,4 +62,49 @@ const addReorder = (variantId, count) => {
     })
 };
 
-export { authorize, addProductToReorder, getAllProducts, getProductsOnOrder, addReorder }
+const receiveInventoryToStock = (id, count) => {
+    return fetch(`${url}/api/onOrder/${id}/${count}`, {
+        method: 'PATCH',
+        headers: new Headers({
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${token}`
+        })
+    })
+};
+
+const getProducts = () => {
+    return fetch(`${url}/api/products/variants`, {
+        method: 'GET',
+        headers: new Headers({
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${token}`
+        })
+    })
+};
+
+const updateProduct = (editedProduct) => {
+   return fetch(`${url}/api/products/update`, {
+        method: 'PUT',
+        body: JSON.stringify(editedProduct),
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    })
+};
+
+const deleteItem = (details) => {
+    return fetch(`${url}/api/products/${details.variantId}`, {
+        method: 'DELETE',
+        headers: new Headers({
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${token}`
+        })
+    })
+}
+
+export { authorize, addProductToReorder, getAllProducts, getProductsOnOrder, addReorder, receiveInventoryToStock, getProducts, updateProduct, deleteItem }

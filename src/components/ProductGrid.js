@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Image } from 'semantic-ui-react';
+import { updateProduct, deleteItem } from './Data';
 
 class ProductGrid extends React.Component {
     editProduct(event, details) {
@@ -7,14 +8,8 @@ class ProductGrid extends React.Component {
         var editedProduct = details;
         editedProduct.inventory_quantity = details.inventory_quantity.value;
         editedProduct.option2 = details.option2.value;
-        console.log(editedProduct);
-        fetch(`https://small-shop.azurewebsites.net/api/products/update`, {
-            method: 'PUT',
-            body: JSON.stringify(editedProduct),
-            headers: {
-                "Content-Type": "application/json"
-              }
-        })
+
+        updateProduct(editedProduct)
         .then(response => {
             if (!response.ok) {
               throw Error("request failed")
@@ -23,10 +18,9 @@ class ProductGrid extends React.Component {
           })
     }
 
-    deleteProduct(event, details) {
-        fetch(`https://small-shop.azurewebsites.net/api/products/${details.variant_id}`, {
-            method: 'DELETE'
-        })
+    deleteProduct(details) {
+        console.log(details);
+        deleteItem(details)
           .then(response => {
             if (!response.ok) {
               throw Error("request failed")

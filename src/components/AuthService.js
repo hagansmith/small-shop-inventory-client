@@ -7,7 +7,12 @@ import {
 import { authorize } from './Data';
 
 const Auth = {
-    isAuthenticated: false,
+    isAuthenticated() {
+        if (!sessionStorage.getItem('token'))
+            return false;
+        else
+            return true;
+    },
 
     authenticate(user, pass) {
         return authorize(user, pass)
@@ -22,7 +27,7 @@ const Auth = {
                     .then(results => {
                         sessionStorage.setItem('token', results.access_token);
                     })
-            },
+    },
 
     signout()
 
