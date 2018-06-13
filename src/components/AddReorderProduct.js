@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input, Button } from 'semantic-ui-react';
+import { addProductToReorder } from "./Data";
 
 class AddReorderProduct extends React.Component {
     addTo(event) {
@@ -7,7 +8,7 @@ class AddReorderProduct extends React.Component {
         let sku = this.sku.inputRef.value;
         let count = this.orderedInventory.inputRef.value;
 
-        fetch(`https://small-shop.azurewebsites.net/api/products/${sku}`)
+        addProductToReorder(sku)
             .then(response => {
                 if (!response.ok) {
                     throw Error("request failed")

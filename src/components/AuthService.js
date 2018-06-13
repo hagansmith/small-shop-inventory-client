@@ -4,40 +4,31 @@ import {
     Redirect,
     withRouter
 } from "react-router-dom";
-import { Modal } from 'semantic-ui-react'
+import { authorize } from './Data';
 
 const Auth = {
     isAuthenticated: false,
-    authenticate(user, pass) {
-        console.log(user, pass)
-        return fetch(`https://e4adfd22.ngrok.io/auth`, {
-            method: 'POST',
-            headers: new Headers({
-                'Accept': 'application/json',
-                'Content-Type': 'application/x-www-form-urlencoded',
-            }),
-            body: `grant_type=password&UserName=${user}&password=${pass}`,
-            credentials: "same-origin"
-        }).then(response => {
-            if (!response.ok) {
-                return (
-                    <Modal>
-                        <Modal.Header>Unable to login</Modal.Header>
-                    </Modal>
-                )
-            }
-            this.isAuthenticated = true;
-            return response
-            })
-            .then(results => results.json())
-            .then(results => {sessionStorage.setItem('token', results.access_token)})
-    },
 
-    signout(cb)
+    authenticate(user, pass) {
+        return authorize(user, pass)
+            .then(response => {
+                    if (!response.ok ) {
+                        return response;
+                    }
+                    this.isAuthenticated = true;
+                    return response
+                })
+                    .then(results => results.json())
+                    .then(results => {
+                        sessionStorage.setItem('token', results.access_token);
+                    })
+            },
+
+    signout()
+
         {
-            this.isAuthenticated = false;
             sessionStorage.removeItem('token');
-            setTimeout(cb, 0); // fake async
+            return this.isAuthenticated = false;
         }
 };
 
