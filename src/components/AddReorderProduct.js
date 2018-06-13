@@ -16,7 +16,7 @@ class AddReorderProduct extends React.Component {
                 return response
             }).then(results => results.json())
             .then(results => {
-                this.props.addToOnOrder(results.variantId, count)
+                this.props.addToOnOrder(results.id, count)
             }).then(
                 this.productForm.reset(),
             )

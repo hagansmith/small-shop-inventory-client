@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="136e8235-6250-4483-8d8b-4babcc90e836" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/AddReorderProduct.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddReorderProduct.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AuthService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AuthService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -36,8 +31,20 @@
       <file leaf-file-name="Home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="59" column="35" lean-forward="true" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
+            <state relative-caret-position="242">
+              <caret line="58" column="36" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddReorderProduct.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/AddReorderProduct.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -60,8 +67,8 @@
       <file leaf-file-name="Data.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+            <state relative-caret-position="146">
+              <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -91,9 +98,9 @@
         <option value="$PROJECT_DIR$/src/components/Nav.js" />
         <option value="$PROJECT_DIR$/src/components/App.js" />
         <option value="$PROJECT_DIR$/src/components/Login.js" />
-        <option value="$PROJECT_DIR$/src/components/AddReorderProduct.js" />
         <option value="$PROJECT_DIR$/src/components/AuthService.js" />
         <option value="$PROJECT_DIR$/src/components/Home.js" />
+        <option value="$PROJECT_DIR$/src/components/AddReorderProduct.js" />
         <option value="$PROJECT_DIR$/src/components/Data.js" />
       </list>
     </option>
@@ -120,7 +127,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-1" />
     <option name="y" value="41" />
     <option name="width" value="1260" />
@@ -190,12 +197,12 @@
       <option name="presentableId" value="Default" />
       <updated>1528564307371</updated>
       <workItem from="1528564308859" duration="5005000" />
-      <workItem from="1528732902176" duration="19879000" />
+      <workItem from="1528732902176" duration="20402000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24884000" />
+    <option name="totallyTimeSpent" value="25407000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="41" width="1260" height="737" extended-state="0" />
@@ -276,24 +283,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/LowInventory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/InventoryGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Products.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -320,29 +309,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/OnOrderGrid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="59" column="36" lean-forward="true" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Nav.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="50" lean-forward="true" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/OnOrderInventory.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -353,32 +323,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/AddReorderProduct.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1113">
           <caret line="80" column="27" selection-start-line="80" selection-start-column="27" selection-end-line="80" selection-end-column="27" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="59" column="35" lean-forward="true" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -393,10 +343,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/OnOrderGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="59" column="36" lean-forward="true" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/LowInventory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/InventoryGrid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/OnOrderInventory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/AddReorderProduct.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="58" column="36" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+        <state relative-caret-position="146">
+          <caret line="53" column="42" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
         </state>
       </provider>
     </entry>
