@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Loader } from 'semantic-ui-react';
 import ProductGrid from './ProductGrid';
 import { getProducts } from './Data.js'
 
@@ -8,7 +8,8 @@ class Products extends React.Component {
         super();
         
         this.state = {
-          allProducts: {},
+            loading: true,
+            allProducts: {},
         }
       }
     
@@ -23,15 +24,19 @@ class Products extends React.Component {
           .then(results => results.json())
           .then(results => {
             this.setState({
-              allProducts: results
+                loading: false,
+                allProducts: results
             })
           });
       }
 
     render(){
         return(
+            <div>
+            <header className="App-intro" as='h2'>All Products</header>
             <Grid.Column width={16}>
-                <h2>All Products</h2>
+                {this.state.loading?
+                    <Loader active inline='centered' /> :
                 <Grid width={16}>
                     <Grid.Row>
                         <Grid.Column width={2}></Grid.Column>
@@ -43,13 +48,15 @@ class Products extends React.Component {
                         {/* <Grid.Column width={2}>Location</Grid.Column> */}
                         
                     </Grid.Row>
-                </Grid>
+                </Grid>}
                 {
                     Object
                         .keys(this.state.allProducts)
-                        .map(key => <ProductGrid key={key} details={this.state.allProducts[key]} />)
+                        .map(key => <ProductGrid key={key} details={this.state.allProducts[key]} loading={this.state.loading} />)
                 }
+
             </Grid.Column>
+            </div>
         )
     }
 }

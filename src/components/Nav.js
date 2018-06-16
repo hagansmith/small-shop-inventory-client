@@ -19,7 +19,7 @@ export default class MainNav extends Component {
                 <Dropdown.Item>Edit Location</Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown> */}
-          { Auth ? <AuthButton /> : ''}
+          { Auth.isAuthenticated ? <AuthButton /> : ''}
       </Menu>
     )
   }

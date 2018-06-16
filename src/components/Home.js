@@ -68,11 +68,9 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <p className="App-intro">
-                    Welcome to Small Shop Inventory
-                </p>
+                <header className="App-intro">Welcome to Small Shop Inventory</header>
                 {/* <Search results={this.state.lowInventory}/> */}
-                <Grid>
+                <Grid className="Grid">
                     <LowInventory lowInventory={this.state.lowInventory}/>
                     <InventoryOnOrder
                         onOrder={this.state.onOrderInventory}

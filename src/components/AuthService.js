@@ -2,16 +2,18 @@ import React from "react";
 import {
     Route,
     Redirect,
-    withRouter
+    withRouter,
+    Link
 } from "react-router-dom";
-import { authorize } from './Data';
+import { authorize, logOut } from './Data';
+import Login from "./Login";
 
 const Auth = {
     isAuthenticated() {
         if (!sessionStorage.getItem('token'))
             return false;
-        else
-            return true;
+
+        return true;
     },
 
     authenticate(user, pass) {
@@ -20,28 +22,27 @@ const Auth = {
                     if (!response.ok ) {
                         return response;
                     }
-                    this.isAuthenticated = true;
                     return response
                 })
                     .then(results => results.json())
                     .then(results => {
                         sessionStorage.setItem('token', results.access_token);
+                        this.isAuthenticated = true;
                     })
     },
 
-    signout()
-
-        {
-            sessionStorage.removeItem('token');
-            return this.isAuthenticated = false;
-        }
+    signout() {
+        sessionStorage.removeItem('token');
+        this.isAuthenticated = false;
+        return <Login/>
+    }
 };
 
 const AuthButton = withRouter(
     ({ history }) =>
         Auth.isAuthenticated ? (
                 <button onClick={() => {
-                        Auth.signout(() => history.push("/"));
+                        Auth.signout(() => history.push("/login"))
                     }}
                 >
                     Sign out

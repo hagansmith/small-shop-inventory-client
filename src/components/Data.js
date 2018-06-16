@@ -1,7 +1,4 @@
-import React from "react";
-
-
-const url= 'https://e4adfd22.ngrok.io';
+const url= 'https://25d58c2a.ngrok.io';
 const token=  sessionStorage.getItem('token');
 
 //https://small-shop.azurewebsites.net
@@ -96,8 +93,8 @@ const updateProduct = (editedProduct) => {
     })
 };
 
-const deleteItem = (details) => {
-    return fetch(`${url}/api/products/${details.variantId}`, {
+const deleteItem = (e, details) => {
+    return fetch(`${url}/api/products/${details.id}`, {
         method: 'DELETE',
         headers: new Headers({
             'Accept': 'application/json',
@@ -105,6 +102,12 @@ const deleteItem = (details) => {
             'Authorization': `Bearer ${token}`
         })
     })
-}
+};
 
-export { authorize, addProductToReorder, getAllProducts, getProductsOnOrder, addReorder, receiveInventoryToStock, getProducts, updateProduct, deleteItem }
+const logOut = () => {
+    return fetch (`${url}api/Account/Logout`, {
+        method: 'POST'
+    });
+};
+
+export { authorize, addProductToReorder, getAllProducts, getProductsOnOrder, addReorder, receiveInventoryToStock, getProducts, updateProduct, deleteItem, logOut }

@@ -27,8 +27,8 @@
 }
 
 .App-intro {
-  font-size: large;
-  padding-top: 25px;
+  font-size: x-large;
+  padding-top: 50px;
 }
 
 .Main-Menu {
@@ -53,6 +53,10 @@
 
 input {
   width: 100%
+}
+
+.Grid {
+  padding-top: 50px;
 }
 
 /* @keyframes App-logo-spin {
