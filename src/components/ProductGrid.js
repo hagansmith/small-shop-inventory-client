@@ -32,12 +32,12 @@ class ProductGrid extends React.Component {
     editProduct(event, details) {
         event.preventDefault();
 
-        this.setState({message: 'Please wait...', isOpen:true})
+        this.setState({message: 'Saving...', isOpen:true})
 
         var editedProduct = details;
         editedProduct.inventory_quantity = details.inventory_quantity.value;
         editedProduct.option2 = details.option2.value;
-
+        editedProduct.location = details.option3.value;
         updateProduct(editedProduct)
         .then(response => {
             if (!response.ok) {
@@ -63,6 +63,7 @@ class ProductGrid extends React.Component {
 
     render() {
         const details = this.props.details;
+        console.log(details.location);
         return (
             <div>
                 {this.props.loading? <Segment>
@@ -73,37 +74,40 @@ class ProductGrid extends React.Component {
             <form className="product-edit" onSubmit={(e) => this.editProduct(e, this.props.details)}>
                 <Grid width={16}>
                     <Grid.Row>
-                        <Grid.Column width={2}>
+                        <Grid.Column width={1}>
                             {details.image_id ? <Image className="itemImage" src={details.image_id} /> : <h3> No Image </h3>}
                         </Grid.Column>
                         <Grid.Column width={3}>
                             {/* <input ref={(input) => details.title = input} type="text" defaultValue={details.title} placeholder="Product Title"/> */}
                             <h4 className="Title">{details.title}</h4>
                         </Grid.Column>
-                        <Grid.Column width={2}>
+                        <Grid.Column width={1}>
                             <h4 className="type">{details.option1}</h4>
                         </Grid.Column>
-                        <Grid.Column width={3}>
+                        <Grid.Column width={2}>
                             {/* <input ref={(input) => details.sku = input} type="text" defaultValue={details.sku} placeholder="SKU"/> */}
                             <h4 className="productISBN">{details.sku}</h4>
                         </Grid.Column>
                         <Grid.Column width={2}>
-                        <input ref={(input) => details.inventory_quantity = input} type="text" defaultValue={details.inventory_quantity} placeholder="Inventory Quantity"/>
+                            <input ref={(input) => details.inventory_quantity = input} type="text" defaultValue={details.inventory_quantity} placeholder="Inventory Quantity"/>
                             {/* <h4 className="remaining">{details.inventory_quantity }</h4> */}
                         </Grid.Column>
                         <Grid.Column width={2}>
-                        <input ref={(input) => details.option2 = input} type="text" defaultValue={details.option2} placeholder="Minimum Inv. Qty."/>
+                            <input ref={(input) => details.option2 = input} type="text" defaultValue={details.option2} placeholder="Minimum Inv. Qty."/>
                         </Grid.Column>
-                        <Grid.Column width={2}>
+                        <Grid.Column width={1}>
+                            <input ref={(input) => details.option3 = input} type="text" defaultValue={details.option3} placeholder="Location"/>
+                        </Grid.Column>
+                        <Grid.Column width={3} >
                             <Popup className='save'
                                    content={this.state.message}
                                    open={this.state.isOpen} position='top left'
-                                   trigger={<Button type="submit"> Save Changes </Button>}
+                                   trigger={<Button type="submit">Save Changes</Button>}
                             />
                             <Popup className='delete'
                                    content={this.state.message}
                                    open={this.state.isOpen} position='top left'
-                                   trigger={<Button className='delete' type="button" disabled={this.state.isWorking} onClick={(e) => this.deleteProduct(e, this.props.details)}> DeleteProduct </Button>}
+                                   trigger={<Button className='delete' type="button" disabled={this.state.isWorking} onClick={(e) => this.deleteProduct(e, this.props.details)}> Delete Product </Button>}
                             />
                         </Grid.Column>
                     </Grid.Row>

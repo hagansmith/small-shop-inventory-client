@@ -82,6 +82,7 @@ const getProducts = () => {
 };
 
 const updateProduct = (editedProduct) => {
+    console.log(editedProduct);
    return fetch(`${url}/api/products/update`, {
         method: 'PUT',
         body: JSON.stringify(editedProduct),

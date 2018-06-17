@@ -39,14 +39,13 @@ class Products extends React.Component {
                     <Loader active inline='centered' /> :
                 <Grid width={16}>
                     <Grid.Row>
-                        <Grid.Column width={2}></Grid.Column>
+                        <Grid.Column width={1}></Grid.Column>
                         <Grid.Column width={3}>Product Name</Grid.Column>
-                        <Grid.Column width={2}>Product Type</Grid.Column>
-                        <Grid.Column width={3}>ISBN-13</Grid.Column>
+                        <Grid.Column width={1}>Product Type</Grid.Column>
+                        <Grid.Column width={2}>ISBN-13</Grid.Column>
                         <Grid.Column width={2}>Inventory On Hand</Grid.Column>
                         <Grid.Column width={2}>Minimum Stock Level</Grid.Column>
-                        {/* <Grid.Column width={2}>Location</Grid.Column> */}
-                        
+                        <Grid.Column width={1}>Location</Grid.Column>
                     </Grid.Row>
                 </Grid>}
                 {
