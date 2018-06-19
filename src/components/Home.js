@@ -40,6 +40,7 @@ class Home extends React.Component {
             })
             .then(results => results.json())
             .then(results => {
+                console.log("inventory", results);
                 this.setState({
                     lowInventory: results
                 })
