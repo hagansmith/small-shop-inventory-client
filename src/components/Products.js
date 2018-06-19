@@ -1,7 +1,8 @@
 import React from 'react';
-import { Grid, Loader } from 'semantic-ui-react';
+import { Loader, Table, Menu, Icon, Sticky } from 'semantic-ui-react';
 import ProductGrid from './ProductGrid';
-import { getProducts } from './Data.js'
+import { getProducts } from './Data.js';
+import _ from 'lodash';
 
 class Products extends React.Component {
     constructor() {
@@ -11,6 +12,8 @@ class Products extends React.Component {
         this.state = {
             loading: true,
             allProducts: {},
+            column: null,
+            direction: null,
         }
       }
     
@@ -35,35 +38,65 @@ class Products extends React.Component {
                   });
           }
 
+    handleSort = clickedColumn => () => {
+        const { column, allProducts, direction } = this.state;
+
+        if (column !== clickedColumn) {
+            this.setState({
+                column: clickedColumn,
+                allProducts: _.sortBy(allProducts, [clickedColumn]),
+                direction: 'ascending',
+            });
+
+            return
+        }
+
+        this.setState({
+            allProducts: allProducts.reverse(),
+            direction: direction === 'ascending' ? 'descending' : 'ascending',
+        })
+    };
 
     render(){
+        const { column, allProducts, direction } = this.state;
         return(
             <div>
             <header className="App-intro" as='h2'>All Products</header>
-            <Grid.Column width={16}>
                 {this.state.loading?
                     <Loader active inline='centered' /> :
-                <Grid width={16}>
-                    <Grid.Row>
-                        <Grid.Column width={1}></Grid.Column>
-                        <Grid.Column width={3}>Product Name</Grid.Column>
-                        <Grid.Column width={1}>Product Type</Grid.Column>
-                        <Grid.Column width={2}>ISBN-13</Grid.Column>
-                        <Grid.Column width={2}>Inventory On Hand</Grid.Column>
-                        <Grid.Column width={2}>Minimum Stock Level</Grid.Column>
-                        <Grid.Column width={1}>Location</Grid.Column>
-                    </Grid.Row>
-                </Grid>}
-                {
-                    Object
-                        .keys(this.state.allProducts)
-                        .map(key => <ProductGrid key={key} details={this.state.allProducts[key]} loading={this.state.loading} />)
-                }
-
-            </Grid.Column>
+                    <Table basic striped fixed sortable>
+                        <Table.Header>
+                            <Table.Row textAlign='center'>
+                                <Table.HeaderCell width={1}></Table.HeaderCell>
+                                <Table.HeaderCell sorted={column === 'title' ? direction : null}
+                                                  onClick={this.handleSort('title')}>Title</Table.HeaderCell>
+                                <Table.HeaderCell sorted={column === 'option1' ? direction : null}
+                                                  onClick={this.handleSort('option1')}>Type</Table.HeaderCell>
+                                <Table.HeaderCell sorted={column === 'sku' ? direction : null}
+                                                  onClick={this.handleSort('sku')}>ISBN</Table.HeaderCell>
+                                <Table.HeaderCell sorted={column === 'inventory_quantity' ? direction : null}
+                                                  onClick={this.handleSort('inventory_quantity')}>Available</Table.HeaderCell>
+                                <Table.HeaderCell sorted={column === 'option2' ? direction : null}
+                                                  onClick={this.handleSort('option2')}>Reorder Level</Table.HeaderCell>
+                                <Table.HeaderCell sorted={column === 'option3' ? direction : null}
+                                                  onClick={this.handleSort('option3')}>Location</Table.HeaderCell>
+                                <Table.HeaderCell></Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Header>
+                        <Table.Body>
+                            {Object
+                                .keys(allProducts)
+                                .map(key => <ProductGrid key={key}
+                                                         details={allProducts[key]}
+                                                         loading={this.state.loading}/>
+                                )
+                            }
+                        </Table.Body>
+                    </Table>}
             </div>
         )
     }
 }
 
 export default Products
+

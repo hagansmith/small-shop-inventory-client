@@ -9,14 +9,16 @@ import { authorize, logOut } from './Data';
 const Auth = {
     isAuthenticated: false,
 
-    // checkToken() {
-    //     if (!sessionStorage.getItem('token')) {
-    //         isAuthenticated: false
-    //     }
-    //     else{
-    //         isAuthenticated: true
-    //     }
-    // },
+    checkToken() {
+        if (!sessionStorage.getItem('token')) {
+            isAuthenticated: false
+            return false;
+        }
+        else{
+            isAuthenticated: true
+            return true;
+        }
+    },
 
     authenticate(user, pass) {
         return authorize(user, pass)
@@ -30,7 +32,7 @@ const Auth = {
             })
             // this gets run even on failure resulting in an error
             .then((results) => results.json())
-                .then(results => {
+            .then(results => {
                 sessionStorage.setItem('token', results.access_token);
             })
     },
@@ -55,12 +57,12 @@ const Auth = {
 const AuthButton = withRouter(
     ({ history }) =>
         Auth.isAuthenticated ? (
-                <button onClick={() => {
-                        Auth.signout(() => history.push("/login"));
-                    }}
-                >
-                    Sign out
-                </button>
+            <button onClick={() => {
+                Auth.signout(() => history.push("/login"));
+            }}
+            >
+                Sign out
+            </button>
         ) : (
             ''
         )
@@ -70,7 +72,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
         render={props =>
-            Auth.isAuthenticated ? (
+            Auth.checkToken() ? (
                 <Component {...props} />
             ) : (
                 <Redirect

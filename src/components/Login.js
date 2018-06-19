@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Redirect} from "react-router-dom";
-import {Auth} from './AuthService'
+import { Auth } from './AuthService'
 import {Container, Form, Popup, Segment} from 'semantic-ui-react'
 
 export default class Login extends Component {

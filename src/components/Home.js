@@ -78,8 +78,7 @@ class Home extends React.Component {
         return (
             <div>
                 <header className="App-intro">Welcome to Small Shop Inventory</header>
-                {/* <Search results={this.state.lowInventory}/> */}
-                <Grid className="Grid">
+                <Grid className="Grid" columns={2} padded>
                     <LowInventory lowInventory={this.state.lowInventory}/>
                     <InventoryOnOrder
                         onOrder={this.state.onOrderInventory}

@@ -35,12 +35,13 @@ export default class SearchProducts extends Component {
       <Grid>
         <Grid.Column width={16}>
           <Search
-            loading={isLoading}
-            onResultSelect={this.handleResultSelect}
-            onSearchChange={this.handleSearchChange}
-            results={this.state.results}
-            value={value}
-            {...this.state}
+              placeholder='Search Products'
+              loading={isLoading}
+              onResultSelect={this.handleResultSelect}
+              onSearchChange={this.handleSearchChange}
+              results={this.state.results}
+              value={value}
+              {...this.state}
           />
         </Grid.Column>
       </Grid>

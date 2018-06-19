@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import Home from './Home'
 import Products from './Products'
 import Login from './Login'
-import { PrivateRoute } from './AuthService'
+import {PrivateRoute} from './AuthService'
 
 export default class Main extends Component {
     render() {
