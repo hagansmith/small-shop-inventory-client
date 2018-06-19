@@ -13,13 +13,13 @@ class AddReorderProduct extends React.Component {
                 if (!response.ok) {
                     throw Error("request failed")
                 }
-                return response
-            }).then(results => results.json())
-            .then(results => {
-                this.props.addToOnOrder(results.id, count)
-            }).then(
-                this.productForm.reset(),
-            )
+                return response;
+                }).then(results => results.json())
+                .then(results => {
+                    this.props.addToOnOrder(results.id, count);
+                    this.productForm.reset();
+                })
+
     }
 
     render() {

@@ -34,7 +34,8 @@ class ProductGrid extends React.Component {
 
         this.setState({message: 'Saving...', isOpen:true})
 
-        var editedProduct = details;
+        let editedProduct = {};
+        editedProduct.id = details.id;
         editedProduct.inventory_quantity = details.inventory_quantity.value;
         editedProduct.option2 = details.option2.value;
         editedProduct.location = details.option3.value;
@@ -56,14 +57,12 @@ class ProductGrid extends React.Component {
                 this.setState({message: 'There was an error deleting', isOpen:true})
             }
             this.deltedMessage();
-            getProducts();
             return response
           })
     }
 
     render() {
         const details = this.props.details;
-        console.log(details.location);
         return (
             <div>
                 {this.props.loading? <Segment>

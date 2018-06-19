@@ -6,7 +6,8 @@ import { getProducts } from './Data.js'
 class Products extends React.Component {
     constructor() {
         super();
-        
+
+        this.getTheProducts = this.getTheProducts.bind(this);
         this.state = {
             loading: true,
             allProducts: {},
@@ -14,21 +15,26 @@ class Products extends React.Component {
       }
     
       componentWillMount() {
-          getProducts()
-          .then(response => {
-            if (!response.ok) {
-              throw Error("request failed")
-            }
-            return response
-          })
-          .then(results => results.json())
-          .then(results => {
-            this.setState({
-                loading: false,
-                allProducts: results
-            })
-          });
+          this.getTheProducts();
       }
+
+      getTheProducts() {
+          getProducts()
+              .then(response => {
+                  if (!response.ok) {
+                      throw Error("request failed")
+                  }
+                  return response
+              })
+                  .then(results => results.json())
+                  .then(results => {
+                      this.setState({
+                          loading: false,
+                          allProducts: results
+                      })
+                  });
+          }
+
 
     render(){
         return(

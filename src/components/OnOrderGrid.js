@@ -3,21 +3,22 @@ import { Grid, Image, Button, Header, Modal, Input } from 'semantic-ui-react';
 import { receiveInventoryToStock } from './Data';
 
 class OnOrderGrid extends React.Component {
-    recieveInventory(event, details) {
+
+    receiveInventory(event, details) {
         event.preventDefault();
         var count = details.remaining["0"].value;
         var id = details.id;
-       
+
         receiveInventoryToStock(id, count)
-        .then(response => {
-            if (!response.ok) {
-                throw Error("request failed")
-            }
-            return response
-        }).then (
-            this.props.getOnorder()
-        )
+            .then(response => {
+                if (!response.ok) {
+                    throw Error("request failed")
+                }
+                this.props.getOnOrder();
+                return response
+            })
     }
+
 
 
     render() {
@@ -50,7 +51,7 @@ class OnOrderGrid extends React.Component {
                                     <Header>Reorder Information</Header>
                                     <p>{this.props.details.orderedInventoryQty} were ordered on {this.props.details.reorderDate}</p>
                                     <p>How many are you reciveing?</p>
-                                    <form ref={(input) => this.props.details.remaining = input}className="receive" onSubmit={(e) => this.recieveInventory(e, this.props.details,)}>
+                                    <form ref={(input) => this.props.details.remaining = input}className="receive" onSubmit={(e) => this.receiveInventory(e, this.props.details,)}>
                                         <Input ref={(input) => this.remaining = input} size='small' placeholder="Quantity"/>
                                         <Button type="submit" size='small'>Receive Inventory</Button>
                                     </form>

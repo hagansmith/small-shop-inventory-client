@@ -11,7 +11,8 @@ class Home extends React.Component {
         super();
 
         this.addToOnOrder = this.addToOnOrder.bind(this);
-        this.getOnorderProducts = this.getOnorderProducts.bind(this);
+        this.getOnOrder = this.getOnOrderProducts.bind(this);
+        this.getAllTheProducts = this.getAllTheProducts.bind(this);
         this.state = {
             allProducts: {},
             lowInventory: {},
@@ -20,6 +21,11 @@ class Home extends React.Component {
     }
 
     componentWillMount() {
+        this.getAllTheProducts();
+        this.getOnOrderProducts();
+    };
+
+    getAllTheProducts() {
         getAllProducts()
             .then(response => {
                 if (!response.ok) {
@@ -33,11 +39,9 @@ class Home extends React.Component {
                     lowInventory: results
                 })
             });
+    };
 
-        this.getOnorderProducts();
-    }
-
-    getOnorderProducts() {
+    getOnOrderProducts() {
         getProductsOnOrder()
             .then(response => {
                 if (!response.ok) {
@@ -56,10 +60,10 @@ class Home extends React.Component {
     addToOnOrder(variantId, count) {
         addReorder(variantId, count)
             .then(response => {
-                console.log(response);
                 if (!response.ok) {
                     throw Error("request failed")
                 }
+                this.getOnOrderProducts();
                 return response
             })
     };
@@ -75,7 +79,7 @@ class Home extends React.Component {
                     <InventoryOnOrder
                         onOrder={this.state.onOrderInventory}
                         addToOnOrder={this.addToOnOrder}
-                        getOnorderProducts={this.getOnorderProducts}
+                        getOnOrder={this.getOnOrder}
                     />
                 </Grid>
             </div>

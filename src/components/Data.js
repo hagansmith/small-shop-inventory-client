@@ -1,4 +1,4 @@
-const url= 'https://25d58c2a.ngrok.io';
+const url= 'https://0454efe7.ngrok.io';
 const token=  sessionStorage.getItem('token');
 
 //https://small-shop.azurewebsites.net
@@ -61,7 +61,7 @@ const addReorder = (variantId, count) => {
 
 const receiveInventoryToStock = (id, count) => {
     return fetch(`${url}/api/onOrder/${id}/${count}`, {
-        method: 'PATCH',
+        method: 'PUT',
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
