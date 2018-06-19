@@ -21,6 +21,11 @@ class Home extends React.Component {
     }
 
     componentWillMount() {
+        if (!sessionStorage.getItem('Token')) {
+            this.timeout = setTimeout(() => {
+                this.setState({ isOpen: false })
+            }, 2500)
+        }
         this.getAllTheProducts();
         this.getOnOrderProducts();
     };

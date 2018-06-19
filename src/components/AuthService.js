@@ -3,38 +3,52 @@ import {
     Route,
     Redirect,
     withRouter,
-    Link
 } from "react-router-dom";
 import { authorize, logOut } from './Data';
-import Login from "./Login";
 
 const Auth = {
-    isAuthenticated() {
-        if (!sessionStorage.getItem('token'))
-            return false;
+    isAuthenticated: false,
 
-        return true;
-    },
+    // checkToken() {
+    //     if (!sessionStorage.getItem('token')) {
+    //         isAuthenticated: false
+    //     }
+    //     else{
+    //         isAuthenticated: true
+    //     }
+    // },
 
     authenticate(user, pass) {
         return authorize(user, pass)
             .then(response => {
-                    if (!response.ok ) {
-                        return response;
-                    }
-                    return response
-                })
-                    .then(results => results.json())
-                    .then(results => {
-                        sessionStorage.setItem('token', results.access_token);
-                        this.isAuthenticated = true;
-                    })
+                if (!response.ok) {
+                    this.isAuthenticated = false;
+                    return <Redirect to={{pathname: '/login'}}/>
+                }
+                this.isAuthenticated = true;
+                return response
+            })
+            // this gets run even on failure resulting in an error
+            .then((results) => results.json())
+                .then(results => {
+                sessionStorage.setItem('token', results.access_token);
+            })
     },
 
     signout() {
-        sessionStorage.removeItem('token');
-        this.isAuthenticated = false;
-        return <Login/>
+        let token = sessionStorage.getItem('token');
+        if (!token)
+            return <Redirect to={'/login'} />;
+        else {
+            return logOut(token).then(response => {
+                if (!response.ok) {
+                    return response;
+                }
+                sessionStorage.removeItem('token');
+                this.isAuthenticated = false;
+                return <Redirect to={{pathname: '/login'}}/>
+            })
+        }
     }
 };
 
@@ -42,7 +56,7 @@ const AuthButton = withRouter(
     ({ history }) =>
         Auth.isAuthenticated ? (
                 <button onClick={() => {
-                        Auth.signout(() => history.push("/login"))
+                        Auth.signout(() => history.push("/login"));
                     }}
                 >
                     Sign out

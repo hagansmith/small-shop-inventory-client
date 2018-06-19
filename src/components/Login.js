@@ -32,17 +32,16 @@ export default class Login extends Component {
 
 
     handleOpen = () => {
-        this.setState({ isOpen: true })
-
+        this.setState({ isOpen: true });
         this.timeout = setTimeout(() => {
             this.setState({ isOpen: false })
         }, 2500)
-    }
+    };
 
     handleClose = () => {
-        this.setState({ isOpen: false })
+        this.setState({ isOpen: false });
         clearTimeout(this.timeout)
-    }
+    };
 
 
     login = (user, pass) => {
@@ -52,7 +51,7 @@ export default class Login extends Component {
                 this.setState({user:'', pass:''});
             }
             this.setState({redirectToReferrer: true});
-        });
+        })
     };
 
 
@@ -77,14 +76,14 @@ export default class Login extends Component {
                             </Form.Group>
                             <Form.Button type='submit'>Log in</Form.Button>
                         </Form>
+                        <Popup
+                            content={`Unable to login please re-enter your details`}
+                            open={this.state.isOpen}
+                            onClose={this.handleClose}
+                            onOpen={this.handleOpen}
+                            position='top right'
+                        />
                     </Segment>
-                    <Popup 
-                        content={`Uable to login please re-enter your details`}
-                        open={this.state.isOpen}
-                        onClose={this.handleClose}
-                        onOpen={this.handleOpen}
-                        position='top right'
-                    />
                 </Container>
             </div>
         );

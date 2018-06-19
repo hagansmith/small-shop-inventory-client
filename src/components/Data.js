@@ -1,5 +1,5 @@
 const url= 'https://0454efe7.ngrok.io';
-const token=  sessionStorage.getItem('token');
+
 
 //https://small-shop.azurewebsites.net
 
@@ -12,8 +12,8 @@ const authorize = (user, pass) => {
         }),
         body: `grant_type=password&UserName=${user}&password=${pass}`,
         credentials: "same-origin"
-    });
-}
+    })
+};
 
 const addProductToReorder = (sku) => {
     return fetch(`${url}/api/products/${sku}`, {
@@ -21,7 +21,7 @@ const addProductToReorder = (sku) => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         })
     })
 };
@@ -32,7 +32,7 @@ const getAllProducts = () => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         })
     })
 };
@@ -43,7 +43,7 @@ const getProductsOnOrder = () => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         })
     })
 };
@@ -54,7 +54,7 @@ const addReorder = (variantId, count) => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         })
     })
 };
@@ -65,7 +65,7 @@ const receiveInventoryToStock = (id, count) => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         })
     })
 };
@@ -76,20 +76,19 @@ const getProducts = () => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         })
     })
 };
 
 const updateProduct = (editedProduct) => {
-    console.log(editedProduct);
    return fetch(`${url}/api/products/update`, {
         method: 'PUT',
         body: JSON.stringify(editedProduct),
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         }
     })
 };
@@ -100,15 +99,20 @@ const deleteItem = (e, details) => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
         })
     })
 };
 
 const logOut = () => {
-    return fetch (`${url}api/Account/Logout`, {
-        method: 'POST'
-    });
+    return fetch (`${url}/api/Account/Logout`, {
+        method: 'POST',
+        headers: new Headers({
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+        })
+    })
 };
 
 export { authorize, addProductToReorder, getAllProducts, getProductsOnOrder, addReorder, receiveInventoryToStock, getProducts, updateProduct, deleteItem, logOut }

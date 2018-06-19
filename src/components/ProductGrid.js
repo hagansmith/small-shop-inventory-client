@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Image, Popup, Button, Segment, Dimmer, Loader } from 'semantic-ui-react';
-import { updateProduct, deleteItem, getProducts } from './Data';
+import { updateProduct, deleteItem } from './Data';
 
 
 
