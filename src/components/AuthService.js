@@ -46,7 +46,7 @@ const Auth = {
                     return response;
                 }
                 localStorage.removeItem('token');
-                this.setState(Auth.isAuthenticated = false);
+                Auth.isAuthenticated = false;
                 return (<Redirect to={{pathname: '/login'}}/>);
             })
         }

@@ -10,7 +10,7 @@
 }
 
 .App-header {
-  height: 140px;
+  height: 120px;
   padding: 20px;
 }
 
@@ -55,6 +55,10 @@ input {
 
 .Grid {
   padding-top: 50px;
+}
+
+.login-form {
+  padding-top: 40px;
 }
 
 /* @keyframes App-logo-spin {

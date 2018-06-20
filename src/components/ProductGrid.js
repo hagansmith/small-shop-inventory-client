@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Image, Popup, Button, Segment, Dimmer, Loader, Table, Input, Confirm, Form} from 'semantic-ui-react';
+import { Image, Popup, Button, Table, Input } from 'semantic-ui-react';
 import {updateProduct, deleteItem} from './Data';
 
 
@@ -114,19 +114,16 @@ class ProductGrid extends React.Component {
                                </Button>
                                }
                         />
-                        <Popup className='delete'
-                               content={this.state.message}
-                               open={this.state.isOpen} position='top left'
-                               trigger={<Button className='delete'
-                                                type="button"
-                                                color='red'
-                                                size='small'
-                                                disabled={this.state.isWorking}
-                                                onClick={(e) => this.deleteProduct(e, this.props.details)}
+                        <Button className='delete'
+                                type="button"
+                                color='red'
+                                size='small'
+                                disabled={this.state.isWorking}
+                                onClick={(e) => this.deleteProduct(e, this.props.details)}
                                >
                                    Delete Product
                                </Button>
-                               }
+
                         />
                     </Button.Group>
                 </Table.Cell>

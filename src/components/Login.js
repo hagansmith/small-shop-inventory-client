@@ -97,9 +97,9 @@ export default class Login extends Component {
                                 </Form.Button>
                             </Segment>
                         </Form>
-                        <Message>
-                            Request a Login
-                        </Message>
+                        {/*<Message>*/}
+                            {/*Request a Login*/}
+                        {/*</Message>*/}
                     </Grid.Column>
                 </Grid>
             </div>
