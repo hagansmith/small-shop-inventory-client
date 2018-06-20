@@ -1,16 +1,17 @@
 import React from 'react';
-import logo from '../images/store.png';
+import logo from '../images/Logo.svg';
 import MainNav from './Nav.js';
+import {Sticky, Image} from 'semantic-ui-react';
 
 
-const Header = () => {
+const Head = () => {
     return (
         <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
+            <Image src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Small Shop <span className="module">| inventory</span></h1>
             <MainNav/>
         </header>
     )
 }
 
-export default Header;
+export default Head;

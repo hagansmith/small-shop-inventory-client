@@ -10,12 +10,12 @@ const Auth = {
     isAuthenticated: false,
 
     checkToken() {
-        if (!sessionStorage.getItem('token')) {
-            isAuthenticated: false
+        if (!localStorage.getItem('token')) {
+            Auth.isAuthenticated = false;
             return false;
         }
         else{
-            isAuthenticated: true
+            Auth.isAuthenticated = true;
             return true;
         }
     },
@@ -24,31 +24,30 @@ const Auth = {
         return authorize(user, pass)
             .then(response => {
                 if (!response.ok) {
-                    this.isAuthenticated = false;
+                    Auth.isAuthenticated = false;
+                    console.log(Auth.isAuthenticated);
                     return <Redirect to={{pathname: '/login'}}/>
                 }
-                this.isAuthenticated = true;
                 return response
-            })
-            // this gets run even on failure resulting in an error
-            .then((results) => results.json())
-            .then(results => {
-                sessionStorage.setItem('token', results.access_token);
+            }).then((results) => results.json())
+                .then(results => {
+                localStorage.setItem('token', results.access_token);
+                Auth.isAuthenticated = true;
             })
     },
 
-    signout() {
-        let token = sessionStorage.getItem('token');
+    signOut() {
+        let token = localStorage.getItem('token');
         if (!token)
-            return <Redirect to={'/login'} />;
+            return (<Redirect to={'/login'} />);
         else {
             return logOut(token).then(response => {
                 if (!response.ok) {
                     return response;
                 }
-                sessionStorage.removeItem('token');
-                this.isAuthenticated = false;
-                return <Redirect to={{pathname: '/login'}}/>
+                localStorage.removeItem('token');
+                this.setState(Auth.isAuthenticated = false);
+                return (<Redirect to={{pathname: '/login'}}/>);
             })
         }
     }
@@ -58,7 +57,7 @@ const AuthButton = withRouter(
     ({ history }) =>
         Auth.isAuthenticated ? (
             <button onClick={() => {
-                Auth.signout(() => history.push("/login"));
+                Auth.signOut(() => history.push("/login"));
             }}
             >
                 Sign out

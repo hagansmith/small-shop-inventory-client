@@ -1,5 +1,5 @@
 import React from 'react';
-import { Loader, Table, Menu, Icon, Sticky } from 'semantic-ui-react';
+import { Loader, Table } from 'semantic-ui-react';
 import ProductGrid from './ProductGrid';
 import { getProducts } from './Data.js';
 import _ from 'lodash';

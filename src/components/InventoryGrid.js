@@ -16,7 +16,6 @@ class InventoryGrid extends React.Component {
 
     render() {
         const details = this.props.details;
-        console.log(details);
         return (
                     <Table.Row key={details.id} negative={this.assessQty(details.inventory_quantity)}>
                         <Table.Cell>{details.image ? <Image className="itemImage" src={details.image} /> : <h3> No Image </h3>}</Table.Cell>

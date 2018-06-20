@@ -21,7 +21,7 @@ const addProductToReorder = (sku) => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
         })
     })
 };
@@ -32,7 +32,7 @@ const getAllProducts = () => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
         })
     })
 };
@@ -43,7 +43,7 @@ const getProductsOnOrder = () => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
         })
     })
 };
@@ -54,7 +54,7 @@ const addReorder = (variantId, count) => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
         })
     })
 };
@@ -65,7 +65,7 @@ const receiveInventoryToStock = (id, count) => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
         })
     })
 };
@@ -76,7 +76,7 @@ const getProducts = () => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
         })
     })
 };
@@ -88,7 +88,7 @@ const updateProduct = (editedProduct) => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
     })
 };
@@ -99,7 +99,7 @@ const deleteItem = (e, details) => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
         })
     })
 };
@@ -110,7 +110,7 @@ const logOut = () => {
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${sessionStorage.getItem('token')}`
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
         })
     })
 };

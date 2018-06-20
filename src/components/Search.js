@@ -3,8 +3,18 @@ import React, { Component } from 'react';
 import { Search, Grid } from 'semantic-ui-react';
 
 export default class SearchProducts extends Component {
+    constructor() {
+        super();
 
-  componentWillMount() {
+        this.state = {
+            isLoading: false,
+            results: [],
+            value: {}
+        }
+    }
+
+
+    componentWillMount() {
     this.resetComponent()
   }
 
@@ -30,7 +40,7 @@ export default class SearchProducts extends Component {
   }
 
   render() {
-    const { isLoading, value, results } = this.state
+    const { isLoading, value, results } = this.state;
     return (
       <Grid>
         <Grid.Column width={16}>
@@ -39,7 +49,7 @@ export default class SearchProducts extends Component {
               loading={isLoading}
               onResultSelect={this.handleResultSelect}
               onSearchChange={this.handleSearchChange}
-              results={this.state.results}
+              results={results}
               value={value}
               {...this.state}
           />

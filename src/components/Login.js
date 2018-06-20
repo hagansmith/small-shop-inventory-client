@@ -1,7 +1,8 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
-import { Auth } from './AuthService'
-import {Container, Form, Popup, Segment} from 'semantic-ui-react'
+import { Auth } from './AuthService';
+import logo from '../images/Logo.svg';
+import { Form, Segment, Grid, Header, Image, Message} from 'semantic-ui-react';
 
 export default class Login extends Component {
     constructor(props) {
@@ -63,29 +64,46 @@ export default class Login extends Component {
         }
 
         return (
-            <div>
-                <Container width={4}>
-                    <h2>Welcome to Small Shop Inventory Please Login</h2>
-                    <Segment inverted>
-                        <Form inverted onSubmit={this.handleSubmit}>
-                            <Form.Group>
-                                <Form.Input required width={16} name='user' value={this.state.user} label='User Name'
-                                            type='userName' placeholder={"User Name"} onChange={this.handleChange}/>
-                                <Form.Input required width={16} name='pass' value={this.state.pass} label='Password'
-                                            type='password' placeholder={"Password"} onChange={this.handleChange}/>
-                            </Form.Group>
-                            <Form.Button type='submit'>Log in</Form.Button>
+            <div className='login-form'>
+
+                <style>{`
+      body > div,
+      body > div > div,
+      body > div > div > div.login-form {
+        height: 100%;
+      }
+    `}</style>
+                <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+                    <Grid.Column style={{ maxWidth: 450 }}>
+                        <Header as='h2' color='green' textAlign='center'>
+                            <Image src={logo} /> Log-in to your account
+                        </Header>
+                        <Form size='large' onSubmit={this.handleSubmit}>
+                            <Segment stacked>
+                                <Form.Input fluid icon='user' name='user' type='userName' iconPosition='left' placeholder='UserName' value={this.state.user} onChange={this.handleChange} />
+                                <Form.Input
+                                    fluid
+                                    icon='lock'
+                                    iconPosition='left'
+                                    placeholder='Password'
+                                    type='password'
+                                    name='pass'
+                                    value={this.state.pass}
+                                    onChange={this.handleChange}
+                                />
+
+                                <Form.Button color='green' fluid size='large' type='submit'>
+                                    Login
+                                </Form.Button>
+                            </Segment>
                         </Form>
-                        <Popup
-                            content={`Unable to login please re-enter your details`}
-                            open={this.state.isOpen}
-                            onClose={this.handleClose}
-                            onOpen={this.handleOpen}
-                            position='top right'
-                        />
-                    </Segment>
-                </Container>
+                        <Message>
+                            Request a Login
+                        </Message>
+                    </Grid.Column>
+                </Grid>
             </div>
         );
     }
 }
+
