@@ -1,5 +1,5 @@
 import React from 'react';
-import { Loader, Table } from 'semantic-ui-react';
+import { Loader, Table, Header } from 'semantic-ui-react';
 import ProductGrid from './ProductGrid';
 import { getProducts } from './Data.js';
 import _ from 'lodash';
@@ -61,7 +61,7 @@ class Products extends React.Component {
         const { column, allProducts, direction } = this.state;
         return(
             <div>
-            <header className="App-intro" as='h2'>All Products</header>
+            <Header className="App-intro" as='h2'>All Products</Header>
                 {this.state.loading?
                     <Loader active inline='centered' /> :
                     <Table basic striped fixed sortable>

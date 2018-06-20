@@ -61,6 +61,13 @@ input {
   padding-top: 40px;
 }
 
+.signOut-Button {
+  border-color: white;
+  border-style: none;
+  border-width: 0;
+  padding: 0;
+}
+
 /* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

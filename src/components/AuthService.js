@@ -56,7 +56,7 @@ const Auth = {
 const AuthButton = withRouter(
     ({ history }) =>
         Auth.isAuthenticated ? (
-            <button onClick={() => {
+            <button className='signOut-button' onClick={() => {
                 Auth.signOut(() => history.push("/login"));
             }}
             >
