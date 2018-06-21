@@ -18,6 +18,10 @@
 - [ ] Performance Improvement/Management
 
 ##### Screen Shots
+![AllProductsPage](https://github.com/hagansmith/small-shop-inventory-client/blob/master/AllProducts.png)
+![Tracking](https://github.com/hagansmith/small-shop-inventory-client/blob/master/Tracking.png)
+![Receive](https://github.com/hagansmith/small-shop-inventory-client/blob/master/Receive.png)
+
 
 
 
