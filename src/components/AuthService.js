@@ -25,7 +25,6 @@ const Auth = {
             .then(response => {
                 if (!response.ok) {
                     Auth.isAuthenticated = false;
-                    console.log(Auth.isAuthenticated);
                     return <Redirect to={{pathname: '/login'}}/>
                 }
                 return response

@@ -34,8 +34,7 @@ class ProductGrid extends React.Component {
 
     editProduct(event, editedProduct) {
         event.preventDefault();
-        this.setState({message: 'Saving...', isOpen: true})
-        console.log(editedProduct);
+        this.setState({message: 'Saving...', isOpen: true});
         updateProduct(editedProduct)
             .then(response => {
                 if (!response.ok) {
@@ -58,17 +57,14 @@ class ProductGrid extends React.Component {
             })
     }
 
-    console(e, input) {
-        console.log(e, input);
-    }
 
     render() {
         const details = this.props.details;
         let editedProduct = {};
         editedProduct.id = details.id;
-        editedProduct.inventory_quantity = '';
-        editedProduct.option2 = '';
-        editedProduct.location = '';
+        editedProduct.inventory_quantity = details.inventory_quantity;
+        editedProduct.option2 = details.option2;
+        editedProduct.location = details.option3;
         return (
             <Table.Row key={details.key}>
                 <Table.Cell>{details.image_id ? <Image className="itemImage" src={details.image_id}/> :
@@ -97,7 +93,7 @@ class ProductGrid extends React.Component {
                            type="text"
                            defaultValue={details.option3}
                            placeholder="Location"
-                           onChange={(input) => editedProduct.option3 = input.target.value}
+                           onChange={(input) => editedProduct.location = input.target.value}
                     />
                 </Table.Cell>
                 <Table.Cell textAlign='center'>

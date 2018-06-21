@@ -12,12 +12,12 @@ class LowInventory extends React.Component {
                 <Table color='yellow' striped fixed>
                     <Table.Header>
                         <Table.Row textAlign='center'>
-                            <Table.HeaderCell width={1}></Table.HeaderCell>
+                            <Table.HeaderCell width={2}></Table.HeaderCell>
                             <Table.HeaderCell>Product Name</Table.HeaderCell>
                             <Table.HeaderCell>ISBN</Table.HeaderCell>
                             <Table.HeaderCell width={2}>Remaining</Table.HeaderCell>
-                            <Table.HeaderCell width={2}>3 Month</Table.HeaderCell>
-                            <Table.HeaderCell width={2}>6 Month</Table.HeaderCell>
+                            {/*<Table.HeaderCell width={2}>3 Month</Table.HeaderCell>*/}
+                            {/*<Table.HeaderCell width={2}>6 Month</Table.HeaderCell>*/}
                         </Table.Row>
                     </Table.Header>
                     <Table.Body>

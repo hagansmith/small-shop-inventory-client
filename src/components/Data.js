@@ -1,6 +1,5 @@
 const url= 'https://0454efe7.ngrok.io';
 
-
 //https://small-shop.azurewebsites.net
 
 const authorize = (user, pass) => {
