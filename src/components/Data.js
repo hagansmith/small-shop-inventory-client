@@ -1,6 +1,7 @@
-const url= 'https://0454efe7.ngrok.io';
-
+const url= 'https://4b2aab70.ngrok.io';
 //https://small-shop.azurewebsites.net
+//
+
 
 const authorize = (user, pass) => {
    return fetch(`${url}/auth`, {
@@ -94,7 +95,7 @@ const updateProduct = (editedProduct) => {
 
 const deleteItem = (e, details) => {
     return fetch(`${url}/api/products/${details.id}`, {
-        method: 'DELETE',
+        method: 'PUT',
         headers: new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',

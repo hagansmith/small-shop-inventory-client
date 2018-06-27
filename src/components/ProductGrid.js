@@ -66,6 +66,7 @@ class ProductGrid extends React.Component {
         editedProduct.option2 = details.option2;
         editedProduct.location = details.option3;
         return (
+            details.active ?
             <Table.Row key={details.key}>
                 <Table.Cell>{details.image_id ? <Image className="itemImage" src={details.image_id}/> :
                     <h3> No Image </h3>}</Table.Cell>
@@ -117,13 +118,13 @@ class ProductGrid extends React.Component {
                                 disabled={this.state.isWorking}
                                 onClick={(e) => this.deleteProduct(e, this.props.details)}
                                >
-                                   Delete Product
+                                   Deactivate Product
                                </Button>
 
                         />
                     </Button.Group>
                 </Table.Cell>
-            </Table.Row>
+                </Table.Row> : null
         )
     }
 }
