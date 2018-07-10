@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input, Button } from 'semantic-ui-react';
-import { addProductToReorder } from "./Data";
+import { addProductToReorder } from "../Services/Data";
 
 class AddReorderProduct extends React.Component {
     addTo(event) {

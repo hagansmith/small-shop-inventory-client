@@ -1,12 +1,12 @@
 import React from 'react';
 import {Grid} from 'semantic-ui-react';
 import '../styles/App.css';
-import LowInventory from './LowInventory';
-import InventoryOnOrder from './OnOrderInventory';
-import {getAllProducts, getProductsOnOrder, addReorder} from "./Data";
+import LowInventory from './LowInventory/LowInventory';
+import InventoryOnOrder from './Reorder/OnOrderInventory';
+import {getAllProducts, getProductsOnOrder, addReorder} from "./Services/Data";
 
 
-class Home extends React.Component {
+class Index extends React.Component {
     constructor() {
         super();
 
@@ -90,4 +90,4 @@ class Home extends React.Component {
     }
 }
 
-export default Home;
+export default Index;

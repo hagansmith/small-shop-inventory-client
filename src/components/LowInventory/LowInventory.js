@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Table } from 'semantic-ui-react';
 import InventoryGrid from './InventoryGrid';
-import SearchProducts from "./Search";
+import SearchProducts from "../Services/Search";
 
 class LowInventory extends React.Component {
     render() {

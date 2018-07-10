@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Button, Header, Modal, Input, Table } from 'semantic-ui-react';
-import { receiveInventoryToStock } from './Data';
+import { receiveInventoryToStock } from '../Services/Data';
 
 class OnOrderGrid extends React.Component {
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 import { Auth } from './AuthService';
-import logo from '../images/Logo.svg';
+import logo from '../../images/Logo.svg';
 import { Form, Segment, Grid, Header, Image, Message} from 'semantic-ui-react';
 
 export default class Login extends Component {

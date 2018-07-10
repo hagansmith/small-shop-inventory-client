@@ -4,7 +4,7 @@ import {
     Redirect,
     withRouter,
 } from "react-router-dom";
-import { authorize, logOut } from './Data';
+import { authorize, logOut } from '../Services/Data';
 
 const Auth = {
     isAuthenticated: false,

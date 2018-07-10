@@ -1,7 +1,7 @@
 import React from 'react';
-import { Loader, Table, Header } from 'semantic-ui-react';
+import { Loader, Table, Header, Button } from 'semantic-ui-react';
 import ProductGrid from './ProductGrid';
-import { getProducts } from './Data.js';
+import { getProducts } from '../Services/Data.js';
 import _ from 'lodash';
 
 class Products extends React.Component {
@@ -14,6 +14,7 @@ class Products extends React.Component {
             allProducts: {},
             column: null,
             direction: null,
+            showAllProducts: false
         }
       }
     
@@ -57,8 +58,14 @@ class Products extends React.Component {
         })
     };
 
+    handleShowAllProducts = () => {
+        !this.state.showAllProducts
+            ? this.setState({showAllProducts: true})
+            : this.setState({showAllProducts: false})
+    };
+
     render(){
-        const { column, allProducts, direction } = this.state;
+        const { column, allProducts, direction, showAllProducts } = this.state;
         return(
             <div>
             <Header className="App-intro" as='h2'>All Products</Header>
@@ -80,7 +87,7 @@ class Products extends React.Component {
                                                   onClick={this.handleSort('option2')}>Reorder Level</Table.HeaderCell>
                                 <Table.HeaderCell sorted={column === 'option3' ? direction : null}
                                                   onClick={this.handleSort('option3')}>Location</Table.HeaderCell>
-                                <Table.HeaderCell></Table.HeaderCell>
+                                <Table.HeaderCell> <Button active={showAllProducts} onClick={this.handleShowAllProducts}>Show all products</Button></Table.HeaderCell>
                             </Table.Row>
                         </Table.Header>
                         <Table.Body>
@@ -88,7 +95,9 @@ class Products extends React.Component {
                                 .keys(allProducts)
                                 .map(key => <ProductGrid key={key}
                                                          details={allProducts[key]}
-                                                         loading={this.state.loading}/>
+                                                         loading={this.state.loading}
+                                                         showAll={this.state.showAllProducts}
+                                            />
                                 )
                             }
                         </Table.Body>

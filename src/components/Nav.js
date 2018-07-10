@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Dropdown, Menu, Rail } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import { Auth, AuthButton } from './AuthService'
+import { Auth, AuthButton } from './Authentication/AuthService'
 
 export default class MainNav extends Component {
   render() {
