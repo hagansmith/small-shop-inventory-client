@@ -14,7 +14,8 @@ class Products extends React.Component {
             allProducts: {},
             column: null,
             direction: null,
-            showAllProducts: false
+            showAllProducts: false,
+            color: 'grey'
         }
       }
     
@@ -60,12 +61,12 @@ class Products extends React.Component {
 
     handleShowAllProducts = () => {
         !this.state.showAllProducts
-            ? this.setState({showAllProducts: true})
-            : this.setState({showAllProducts: false})
+            ? this.setState({showAllProducts: true, color: 'blue'})
+            : this.setState({showAllProducts: false, color: 'grey'})
     };
 
     render(){
-        const { column, allProducts, direction, showAllProducts } = this.state;
+        const { column, allProducts, direction, showAllProducts, color } = this.state;
         return(
             <div>
             <Header className="App-intro" as='h2'>All Products</Header>
@@ -87,13 +88,14 @@ class Products extends React.Component {
                                                   onClick={this.handleSort('option2')}>Reorder Level</Table.HeaderCell>
                                 <Table.HeaderCell sorted={column === 'option3' ? direction : null}
                                                   onClick={this.handleSort('option3')}>Location</Table.HeaderCell>
-                                <Table.HeaderCell> <Button active={showAllProducts} onClick={this.handleShowAllProducts}>Show all products</Button></Table.HeaderCell>
+                                <Table.HeaderCell> <Button active={showAllProducts} color={color} onClick={this.handleShowAllProducts}>Show all products</Button></Table.HeaderCell>
                             </Table.Row>
                         </Table.Header>
                         <Table.Body>
                             {Object
                                 .keys(allProducts)
                                 .map(key => <ProductGrid key={key}
+                                                         index={key}
                                                          details={allProducts[key]}
                                                          loading={this.state.loading}
                                                          showAll={this.state.showAllProducts}

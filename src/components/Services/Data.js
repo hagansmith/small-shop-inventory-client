@@ -1,4 +1,4 @@
-const url= 'https://4b2aab70.ngrok.io';
+const url= 'https://5754c0f8.ngrok.io';
 //https://small-shop.azurewebsites.net
 //
 
@@ -93,8 +93,19 @@ const updateProduct = (editedProduct) => {
     })
 };
 
-const deleteItem = (e, details) => {
-    return fetch(`${url}/api/products/${details.id}`, {
+const deactivateItem = (e, details) => {
+    return fetch(`${url}/api/products/${details.id}/deactivate`, {
+        method: 'PUT',
+        headers: new Headers({
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        })
+    })
+};
+
+const activateItem = (e, details) => {
+    return fetch(`${url}/api/products/${details.id}/activate`, {
         method: 'PUT',
         headers: new Headers({
             'Accept': 'application/json',
@@ -115,4 +126,4 @@ const logOut = () => {
     })
 };
 
-export { authorize, addProductToReorder, getAllProducts, getProductsOnOrder, addReorder, receiveInventoryToStock, getProducts, updateProduct, deleteItem, logOut }
+export { authorize, addProductToReorder, getAllProducts, getProductsOnOrder, addReorder, receiveInventoryToStock, getProducts, updateProduct, deactivateItem, activateItem, logOut }

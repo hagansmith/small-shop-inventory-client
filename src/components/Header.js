@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../images/Logo.svg';
 import MainNav from './Nav.js';
-import { Image, Segment, Sticky } from 'semantic-ui-react';
+import { Image, Segment } from 'semantic-ui-react';
 
 
 const Head = () => {

@@ -4,6 +4,7 @@ import '../styles/App.css';
 import LowInventory from './LowInventory/LowInventory';
 import InventoryOnOrder from './Reorder/OnOrderInventory';
 import {getAllProducts, getProductsOnOrder, addReorder} from "./Services/Data";
+import {Auth} from './Authentication/AuthService'
 
 
 class Index extends React.Component {
@@ -26,6 +27,7 @@ class Index extends React.Component {
                 this.setState({ isOpen: false })
             }, 2500)
         }
+        Auth.checkToken();
         this.getAllTheProducts();
         this.getOnOrderProducts();
     };
