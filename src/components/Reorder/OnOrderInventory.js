@@ -1,14 +1,14 @@
 import React from 'react';
 import { Grid, Table } from 'semantic-ui-react';
 import OnOrderGrid from './OnOrderGrid';
-import AddReorderProduct from './AddReorderProduct';
+import ReorderProduct from './ReorderProduct';
 
 class InventoryOnOrder extends React.Component {
     render() {
         return (
             <Grid.Column width={8}>
                 <h2>Inventory On Order</h2>
-                <AddReorderProduct addToOnOrder={this.props.addToOnOrder} getOnOrder={this.props.getOnOrder} onOrder={this.props.onOrder}/>
+                <ReorderProduct addToOnOrder={this.props.addToOnOrder} getOnOrder={this.props.getOnOrder} onOrder={this.props.onOrder}/>
                 <Table color='green' striped fixed>
                     <Table.Header>
                         <Table.Row textAlign='center'>
