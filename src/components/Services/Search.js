@@ -12,8 +12,6 @@ export default class SearchProducts extends Component {
             value: {}
         }
     }
-
-
     componentWillMount() {
     this.resetComponent()
   }
@@ -27,17 +25,17 @@ export default class SearchProducts extends Component {
     this.setState({ isLoading: true, value })
 
     setTimeout(() => {
-      if (this.state.value.length < 1) return this.resetComponent()
+      if (this.state.value.length < 1)
+          return this.resetComponent();
 
-      const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = result => re.test(result.title)
-      ;
+      const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
+      const isMatch = result => re.test(result.title);
       this.setState({
         isLoading: false,
         results: _.filter(this.props.results, isMatch),
       })
     }, 500)
-  }
+  };
 
   render() {
     const { isLoading, value, results } = this.state;

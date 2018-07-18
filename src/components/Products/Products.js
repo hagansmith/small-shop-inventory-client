@@ -83,11 +83,11 @@ class Products extends React.Component {
                                 <Table.HeaderCell sorted={column === 'sku' ? direction : null}
                                                   onClick={this.handleSort('sku')}>ISBN</Table.HeaderCell>
                                 <Table.HeaderCell sorted={column === 'inventory_quantity' ? direction : null}
-                                                  onClick={this.handleSort('inventory_quantity')}>Available</Table.HeaderCell>
+                                                  onClick={this.handleSort('inventory_quantity.input.target.value')}>Available</Table.HeaderCell>
                                 <Table.HeaderCell sorted={column === 'option2' ? direction : null}
-                                                  onClick={this.handleSort('option2')}>Reorder Level</Table.HeaderCell>
+                                                  onClick={this.handleSort('option2.input.target.value')}>Reorder Level</Table.HeaderCell>
                                 <Table.HeaderCell sorted={column === 'option3' ? direction : null}
-                                                  onClick={this.handleSort('option3')}>Location</Table.HeaderCell>
+                                                  onClick={this.handleSort('option3.input.target.value')}>Location</Table.HeaderCell>
                                 <Table.HeaderCell> <Button active={showAllProducts} color={color} onClick={this.handleShowAllProducts}>Show all products</Button></Table.HeaderCell>
                             </Table.Row>
                         </Table.Header>
