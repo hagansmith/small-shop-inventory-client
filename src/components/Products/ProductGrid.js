@@ -79,8 +79,8 @@ class ProductGrid extends React.Component {
         const {details, index} = this.props;
         let editedProduct = {};
         editedProduct.id = details.id;
-        editedProduct.inventory_quantity = details.inventory_quantity;
-        editedProduct.option2 = details.option2;
+        editedProduct.inventoryQuantity = details.inventory_quantity;
+        editedProduct.minimumStock = details.option2;
         editedProduct.location = details.option3;
         return (
              !this.props.showAll ?
@@ -96,7 +96,7 @@ class ProductGrid extends React.Component {
                                type="text"
                                defaultValue={details.inventory_quantity}
                                placeholder="Inventory Quantity"
-                               onChange={(input) => editedProduct.inventory_quantity = input.target.value}
+                               onChange={(input) => editedProduct.inventoryQuantity = input.target.value}
                         />
                     </Table.Cell>
                     <Table.Cell textAlign='center'>
@@ -104,7 +104,7 @@ class ProductGrid extends React.Component {
                                type="text"
                                defaultValue={details.option2}
                                placeholder="Minimum Inv. Qty."
-                               onChange={(input) => editedProduct.option2 = input.target.value}
+                               onChange={(input) => editedProduct.minimumStock = input.target.value}
                         />
                     </Table.Cell>
                     <Table.Cell textAlign='center'>
@@ -112,7 +112,7 @@ class ProductGrid extends React.Component {
                                type="text"
                                defaultValue={details.option3}
                                placeholder="Location"
-                               onChange={(input) => editedProduct.option3 = input.target.value}
+                               onChange={(input) => editedProduct.location = input.target.value}
                         />
                     </Table.Cell>
                     <Table.Cell textAlign='center'>

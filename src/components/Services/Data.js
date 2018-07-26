@@ -115,6 +115,17 @@ const activateItem = (e, details) => {
     })
 };
 
+const getCustomers = () => {
+    return fetch(`${url}/api/customers`, {
+        method: 'GET',
+        headers: new Headers({
+            'Accept': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        })
+    })
+};
+
 const logOut = () => {
     return fetch (`${url}/api/Account/Logout`, {
         method: 'POST',
@@ -126,4 +137,4 @@ const logOut = () => {
     })
 };
 
-export { authorize, addProductToReorder, getAllProducts, getProductsOnOrder, addReorder, receiveInventoryToStock, getProducts, updateProduct, deactivateItem, activateItem, logOut }
+export { authorize, addProductToReorder, getAllProducts, getProductsOnOrder, addReorder, receiveInventoryToStock, getProducts, updateProduct, deactivateItem, activateItem, getCustomers, logOut }

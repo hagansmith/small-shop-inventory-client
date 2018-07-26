@@ -12,6 +12,7 @@ export default class MainNav extends Component {
         <Menu.Item className="main-menu-item" name='Cycle Count' />
         <Menu.Item className="main-menu-item" name='Remove Inventory' /> */}
         <Menu.Item className="main-menu-item" name='Products' as={Link} to='/products' />
+          <Menu.Item className="main-menu-item" name='Customers' as={Link} to='/customers' />
         {/* <Dropdown className="main-menu-item" item text='Locations'>
             <Dropdown.Menu>
                 <Dropdown.Item>Add Location</Dropdown.Item>

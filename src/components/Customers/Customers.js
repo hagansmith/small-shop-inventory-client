@@ -1,14 +1,14 @@
 import React from 'react';
 import { Loader, Table, Header, Button } from 'semantic-ui-react';
-import ProductGrid from './ProductGrid';
-import { getProducts } from '../Services/Data.js';
+import CustomerGrid from './CustomerGrid';
+import { getCustomers } from '../Services/Data.js';
 import _ from 'lodash';
 
-class Products extends React.Component {
+class Customers extends React.Component {
     constructor() {
         super();
 
-        this.getTheProducts = this.getTheProducts.bind(this);
+        this.getTheCustomers = this.getTheCustomers.bind(this);
         this.state = {
             loading: true,
             allProducts: {},
@@ -20,11 +20,11 @@ class Products extends React.Component {
       }
     
       componentWillMount() {
-          this.getTheProducts();
+          this.getTheCustomers();
       }
 
-      getTheProducts() {
-          getProducts()
+      getTheCustomers() {
+          getCustomers()
               .then(response => {
                   if (!response.ok) {
                       throw Error("request failed")
@@ -37,6 +37,7 @@ class Products extends React.Component {
                           loading: false,
                           allProducts: results
                       })
+                      console.log(results);
                   });
           }
 
@@ -76,29 +77,31 @@ class Products extends React.Component {
                         <Table.Header>
                             <Table.Row textAlign='center'>
                                 <Table.HeaderCell width={1}></Table.HeaderCell>
-                                <Table.HeaderCell sorted={column === 'title' ? direction : null}
-                                                  onClick={this.handleSort('title')}>Name</Table.HeaderCell>
-                                <Table.HeaderCell sorted={column === 'option1' ? direction : null}
-                                                  onClick={this.handleSort('option1')}>Order Count</Table.HeaderCell>
-                                <Table.HeaderCell sorted={column === 'sku' ? direction : null}
-                                                  onClick={this.handleSort('sku')}>Orders Total</Table.HeaderCell>
-                                <Table.HeaderCell sorted={column === 'inventory_quantity' ? direction : null}
-                                                  onClick={this.handleSort('inventory_quantity.input.target.value')}>Available</Table.HeaderCell>
-                                <Table.HeaderCell sorted={column === 'option2' ? direction : null}
-                                                  onClick={this.handleSort('option2.input.target.value')}>Reorder Level</Table.HeaderCell>
-                                <Table.HeaderCell sorted={column === 'option3' ? direction : null}
-                                                  onClick={this.handleSort('option3.input.target.value')}>Location</Table.HeaderCell>
-                                <Table.HeaderCell> <Button active={showAllProducts} color={color} onClick={this.handleShowAllProducts}>Show all products</Button></Table.HeaderCell>
+                                <Table.HeaderCell sorted={column === 'last_name' ? direction : null}
+                                                  onClick={this.handleSort('last_name')}>Name</Table.HeaderCell>
+                                <Table.HeaderCell sorted={column === 'orders_count' ? direction : null}
+                                                  onClick={this.handleSort('orders_count')}>Order Count</Table.HeaderCell>
+                                <Table.HeaderCell sorted={column === 'orders_total' ? direction : null}
+                                                  onClick={this.handleSort('orders_total')}>Orders Total</Table.HeaderCell>
+                                <Table.HeaderCell sorted={column === 'city' ? direction : null}
+                                                  onClick={this.handleSort('city')}>City</Table.HeaderCell>
+                                <Table.HeaderCell sorted={column === 'state' ? direction : null}
+                                                  onClick={this.handleSort('state')}>State</Table.HeaderCell>
+                                <Table.HeaderCell sorted={column === 'zip' ? direction : null}
+                                                  onClick={this.handleSort('zip')}>Zip</Table.HeaderCell>
+                                <Table.HeaderCell>
+                                    {/*<Button active={showAllProducts} color={color} onClick={this.handleShowAllProducts}>Show all products</Button>*/}
+                                </Table.HeaderCell>
                             </Table.Row>
                         </Table.Header>
                         <Table.Body>
                             {Object
                                 .keys(allProducts)
-                                .map(key => <ProductGrid key={key}
-                                                         index={key}
-                                                         details={allProducts[key]}
-                                                         loading={this.state.loading}
-                                                         showAll={this.state.showAllProducts}
+                                .map(key => <CustomerGrid key={key}
+                                                          index={key}
+                                                          details={allProducts[key]}
+                                                          loading={this.state.loading}
+                                                          showAll={this.state.showAllProducts}
                                             />
                                 )
                             }
@@ -109,5 +112,5 @@ class Products extends React.Component {
     }
 }
 
-export default Products
+export default Customers
 

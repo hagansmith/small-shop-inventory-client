@@ -41,5 +41,5 @@ Knowing what I was looking for from the warehouse management and consulting side
 could not find, a WMS for small and medium businesses that would allow business owners and employees to get 
 quick insight into their inventory whether it's in their garage on shelves or in a dedicated warehouse.
 
-- Endpoints currently exist for integration with Shopify Webhook Events (Products, Orders)
+- Endpoints currently exist for integration with Shopify Webhook Events (Customers, Orders)
 - Server side repo [here](https://github.com/hagansmith/SmallShopDAL)
